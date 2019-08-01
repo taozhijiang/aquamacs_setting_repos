@@ -24,8 +24,8 @@
 (add-to-list 'Info-default-directory-list 
     (concat CustHomeDir "/tools/tramp/info/"))
 (require 'tramp)
-(setq tramp-default-user "user"
-        tramp-defalt-host "172.16.17.131")
+(setq tramp-default-user "aliuser"
+        tramp-defalt-host "sz.taozj.org")
 (add-to-list 'backup-directory-alist
              (cons "." 
                 (concat CustHomeDir "/EmacsData/auto-save-list/")))
@@ -40,15 +40,15 @@
 (require 'cursor-chg)            ; Load this library
 (change-cursor-mode 1)           ; On for overwrite/read-only/input mode
 (toggle-cursor-type-when-idle 1) ; On when idle
-
 (setq curchg-idle-cursor-type 'hellow);
 (setq curchg-overwrite/read-only-cursor-type 'box);
 
 
 ;; 当前行高亮显示
-(require 'hl-line+) ; Load this file (it will load `hl-line.el')
-(toggle-hl-line-when-idle 1) ; Highlight only when idle
+(require 'hl-line+)             ;; Load this file (it will load `hl-line.el')
+(toggle-hl-line-when-idle 1)    ;; 是否只在空闲的时候才高亮当前行
 (setq hl-line-idle-interval 2)
+
 
 ;; 使用Ctrl-\进行修改历史的返回
 (require 'redo+)
@@ -61,7 +61,7 @@
 (ebs-initialize)
 (global-set-key [(control tab)] 'ebs-switch-buffer)
 
-;; 让脚本在保存的时候，自动添加可执行权限
+;; 让脚本在保存的时候，可以自动添加可执行权限
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 

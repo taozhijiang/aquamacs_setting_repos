@@ -153,18 +153,13 @@
 
 (define-key ctl-c-map "s" 'query-replace)
 
-(define-key ctl-c-map "a" 'ack)
-(define-key ctl-c-map "f" 'ack-find-file) ;;在当前路径中，选择目录打开的文件
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misc 按键
 (global-set-key (kbd "<f2>") 'ansi-term-visit-dwim)
-(global-set-key (kbd "<f8>") 'menu-bar-mode)
 
 (global-set-key (kbd "<f9>") 'ecb-hide-ecb-windows)
 (global-set-key (kbd "ESC <f9>") 'ecb-show-ecb-windows)
-(global-set-key (kbd "<f11>") 'toggle-fullscreen)
 (global-set-key (kbd "<f10>") 'gnus)
 
 

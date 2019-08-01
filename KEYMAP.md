@@ -12,11 +12,6 @@ C-x C-m -- save-buffers-kill-terminal
 C-x l -- goto-line
 
 
-;; douban-music
-C-c i -- douban-music-play-song)
-C-c o -- douban-music-play-next-song)
-C-c p -- douban-music-stop-play)
-
 ;; misc tools
 C-c f -- 
 ace-jump-mode
