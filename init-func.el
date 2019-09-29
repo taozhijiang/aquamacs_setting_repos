@@ -24,11 +24,11 @@
 (add-to-list 'Info-default-directory-list 
     (concat CustHomeDir "/tools/tramp/info/"))
 (require 'tramp)
-(setq tramp-default-user "aliuser"
-        tramp-defalt-host "sz.taozj.org")
+(setq tramp-default-user "ztao"
+        tramp-defalt-host "taozj.org")
 (add-to-list 'backup-directory-alist
              (cons "." 
-                (concat CustHomeDir "/EmacsData/auto-save-list/")))
+                (concat CustHomeDir "/EmacsData/tramp/")))
 (setq tramp-backup-directory-alist backup-directory-alist)
 (setq tramp-chunksize 500) ;; just add this in case of hung
 
@@ -63,6 +63,20 @@
 
 ;; 让脚本在保存的时候，可以自动添加可执行权限
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+;; markdown mode
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; 快捷键的配置
+;; C-c C-c p: markdown-command > temporary file > browser.
+;; C-c C-c l: markdown-live-preview-mode > *eww* buffer.
 
 
 (provide 'init-func)

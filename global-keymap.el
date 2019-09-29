@@ -1,12 +1,12 @@
 ;; -----------------------------------
 ;;
 ;; Emacs的键映射配置
-;;   其中有的映射是系统默认的，这里也都列出来了
+;;   其中有的映射是系统默认的，这里也都列出来了，可以用于进行按键的记忆复习
 ;;
 ;; -----------------------------------
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; C- 按键
+;; C- 按键，除了Ctrl-C之外都基本是系统默认按键
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (global-set-key (kbd "C-a") 'move-beginning-of-line)
@@ -114,7 +114,8 @@
 
 (define-key ctl-x-map "C-b" 'buffer-menu)
 (define-key ctl-x-map "C-c" 'save-buffers-kill-terminal)
-(define-key ctl-x-map "d"   'list-directory) ;;deprecated
+;;(define-key ctl-x-map "d"   'list-directory) ;;deprecated
+(define-key ctl-x-map "d"   'joc-dired-magic-buffer)
 (define-key ctl-x-map "C-d" 'joc-dired-magic-buffer)
 (define-key ctl-x-map "C-f" 'find-file)
 (define-key ctl-x-map "C-j" 'dired-jump) ;;跳到编辑文件对应的dired目录

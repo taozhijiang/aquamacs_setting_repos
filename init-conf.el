@@ -65,7 +65,8 @@
   t)
 ;; you can select the key you prefer to
 ;; (define-key global-map (kbd "C-c f") 'ace-jump-mode)
-(global-set-key (kbd "C-c f") 'ace-jump-mode)
+;;(global-set-key (kbd "C-c f") 'ace-jump-mode)
+;; has been bind to Ctrl-,
 ;; enable a more powerful jump back function from ace jump mode 
 (autoload
   'ace-jump-mode-pop-mark
@@ -75,7 +76,8 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 ;; (define-key global-map (kbd "C-c g") 'ace-jump-mode-pop-mark)
-(global-set-key (kbd "C-c g") 'ace-jump-mode-pop-mark)
+;;(global-set-key (kbd "C-c g") 'ace-jump-mode-pop-mark)
+;; has been bind to Ctrl-.
 
 
 ;; browse-kill-ring

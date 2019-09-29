@@ -1,5 +1,13 @@
-﻿;; 编码设置 begin
+﻿;;
+;; Emacs中和文件编码相关的设置
+
+;; 编码设置 begin
 ;; (set-language-environment 'Chinese-GB)
+
+
+(setenv "LC_ALL" "C")
+
+(require 'unicad nil t)
 
 ;; default-buffer-file-coding-system变量在emacs23.2之后已被废弃，使用buffer-file-coding-system代替
 (set-default buffer-file-coding-system 'utf-8-unix)

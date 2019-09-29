@@ -8,18 +8,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; 个人信息
+;; 个人信息设置
 (setq user-full-name "taozhijiang")
 (setq user-mail-address "t@taozj.org")
 
 
-;; 设置配置修改的备份文件夹位置
-(add-to-list 'backup-directory-alist
-    (cons "." 
-        (concat CustHomeDir "/EmacsData/auto-save-list/"))
-)
+;; 设置配置修改时候的备份文件夹位置
+(setq auto-directory (concat CustHomeDir "/EmacsData/autosaves/"))
+(setq back-directory (concat CustHomeDir "/EmacsData/backups/"))
+(if (not (file-exists-p auto-directory))  (make-directory auto-directory) )
+(if (not (file-exists-p back-directory))  (make-directory back-directory) )
+(custom-set-variables
+    '(auto-save-file-name-transforms `((".*", auto-directory t)))
+    '(backup-directory-alist `((".*" . back-directory )))
+    )
 
-;; 除了默认的Ctrl-X之外，再增加两种额外的键盘映射
+;; 除了默认的Ctrl-X之外，再额外增加两种的键盘前缀映射
 ;; Ctrl-C
 (define-prefix-command 'ctl-c-map)
 (global-set-key (kbd "C-c") 'ctl-c-map)
@@ -47,10 +51,11 @@
 ;; 关闭滚动条、关闭工具栏、打开菜单栏，界面尽量的简洁
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode 1)
+(menu-bar-mode t)
 
-;; 打开全局的行号显示，下面的格式化用于行号和正文之间流出空隙，便于查看
-(global-linum-mode 1)
+;; 打开全局的行号显示，下面的格式化用于行号和正文之间流出一个空格间隙，以便于查看真正文本内容
+(global-hl-line-mode t)
+(global-linum-mode t)
 (eval-after-load "linum"
     '(set-face-attribute 'linum nil :height 100))
 ;; insert a space if running in text mode
@@ -60,13 +65,20 @@
 )
 ;; 光标相关设置
 (mouse-avoidance-mode 'animate)
-(blink-cursor-mode -1)
+(blink-cursor-mode 1)
+(setq-default cursor-type 'box)
+
+(setq global-mark-ring-max 5000         ; increase mark ring to contains 5000 entries
+      mark-ring-max 5000                ; increase kill ring to contains 5000 entries
+      mode-require-final-newline t      ; add a newline to end of file
+      kill-ring-max 5000                ; increase kill-ring capacity
+)
 
 ;; 全局制表符的设置
+(setq-default tab-width 4)
 (setq default-tab-width 4)
 (setq c-basic-offset 4)
 (setq c++-basic-offset 4)
-
 
 ;;
 ;; 日期和时间的显示设置，包括日历
@@ -76,7 +88,7 @@
       display-time-interval 10
       display-time-format "%y-%m-%d %a %H:%M")
 (display-time)
-;; 从周一开始新的一周
+;; 从周一开始计算新的一周
 (setq calendar-week-start-day 1)
 (setq calendar-location-name "北京")
 
@@ -91,7 +103,7 @@
 
 
 
-;; Yes/No的确认简写操作
+;; Yes/No的确认需求采用简写操作
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq-default kill-whole-line t)               ;; 连带删除整行的结尾换行符
@@ -104,7 +116,8 @@
 (global-set-key [(end)] 'end-of-buffer)
 
 
-;; 当进行文件删除的时候，移动到废纸篓方便恢复，但是真正的垃圾要删除
+;; 当进行文件删除的时候，移动到废纸篓方便恢复
+;; 但是对于真正的垃圾要真正执行删除操作
 (setq delete-by-moving-to-trash t
       system-trash-exclude-matches '("#[^/]+#$" ".*~$" "\\.emacs\\.desktop.*")
       system-trash-exclude-paths '("/tmp"))      system-trash-exclude-paths 
@@ -119,10 +132,21 @@
       version-control t)    ;; 多次备份
 
 
+;; session 会话数据保存，包括打开的历史文件列表等
+;; save the corresponding things
+(require 'session)
+(add-hook 'after-init-hook 'session-initialize)
+(setq session-save-file 
+	(concat CustHomeDir "/EmacsData/session" ))
+
+
+;; 归纳在其他文件中的配置信息
+(require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
+(require 'init-program)
 
-;; 全局的、全部的键盘映射
+;; 全局的键盘映射表设置
 (require 'global-keymap)
 (require 'emacs-code-patch)
 
