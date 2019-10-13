@@ -144,9 +144,13 @@
 (require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
-;; heavily helm
-(require 'init-program)
 
+;; heavily helm
+
+(require 'init-program)
+(semantic-mode 1)
+(setq semanticdb-default-save-directory 
+      (concat CustHomeDir "/EmacsData/semanticdb/"))
 ;; 全局的键盘映射表设置
 (require 'global-keymap)
 (require 'emacs-code-patch)

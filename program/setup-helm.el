@@ -19,6 +19,7 @@
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+;; 因为默认的绑定键Ctrl-x c容易5️误操作，所以绑定到Ctrl-c h
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
@@ -65,6 +66,7 @@
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
+;; 默认helm命令的键都是没有绑定的，这里进行显式绑定，不少替换了系统默认功能
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
@@ -74,8 +76,8 @@
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 
-(global-set-key (kbd "C-c h w") 'helm-wikipedia-suggest)
-(global-set-key (kbd "C-c h g") 'helm-google-suggest)
+;; (global-set-key (kbd "C-c h w") 'helm-wikipedia-suggest)
+;; (global-set-key (kbd "C-c h g") 'helm-google-suggest)
 
 (global-set-key (kbd "C-c h x") 'helm-register)
 ;; (global-set-key (kbd "C-x r j") 'jump-to-register)

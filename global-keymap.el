@@ -100,7 +100,8 @@
 (global-set-key (kbd "M-i") 'semantic-ia-complete-symbol)
 (global-set-key (kbd "M-o") 'semantic-ia-fast-jump)
 
-(global-set-key (kbd "M-y") 'yank-pop) ;;默认C-y是粘贴，如果前面一条命令是C-y，
+;; 废弃，使用helm-show-kill-ring
+;; (global-set-key (kbd "M-y") 'yank-pop) ;;默认C-y是粘贴，如果前面一条命令是C-y，
                                        ;;那么M-y慢慢前面替换kill-ring里面的内容
 
 ;; M-g 前缀 M-g M-p next-error
@@ -137,7 +138,7 @@
 (define-key ctl-x-map "2" 'split-window-vertically)
 (define-key ctl-x-map "3" 'split-window-horizontally)
 
-(define-key ctl-x-map "b" 'switch-to-buffer)
+;; (define-key ctl-x-map "b" 'switch-to-buffer) ;;重新绑定到 'helm-mini
 (define-key ctl-x-map "m" 'wenshan-edit-current-file-as-root) ;;sudo编辑当前文件
 
 (define-key ctl-x-map "u" 'undo)
