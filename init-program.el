@@ -1,4 +1,7 @@
 ﻿
+(add-to-list 'load-path
+    (concat CustHomeDir "/program/"))
+
 ;; 在编程模式下，如果有无用的空白，则显示它
 (add-hook 'prog-mode-hook 
           (lambda () (interactive) (setq show-trailing-whitespace 1)))
@@ -18,8 +21,27 @@
 
 ;; flycheck
 (add-to-list 'load-path
-    (concat CustHomeDir "/tools/flycheck/"))
+    (concat CustHomeDir "/program/flycheck/"))
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; emacs-async
+(add-to-list 'load-path
+    (concat CustHomeDir "/program/emacs-async"))
+(autoload 'dired-async-mode "dired-async.el" nil t)
+(dired-async-mode 1)
+
+;; popup-el
+(require 'popup)
+
+;; helm
+(add-to-list 'load-path
+    (concat CustHomeDir "/program/emacs-helm/"))
+(require 'helm)
+(require 'helm-config)
+
+;; helm ide setup from others
+(require 'setup-helm)
+(require 'setup-helm-gtags)
 
 (provide 'init-program)

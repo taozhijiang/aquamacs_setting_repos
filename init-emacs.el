@@ -86,7 +86,7 @@
 (setq display-time-24hr-format t
       display-time-day-and-date t
       display-time-interval 10
-      display-time-format "%y-%m-%d %a %H:%M")
+      display-time-format "%Y-%m-%d %a %H:%M")
 (display-time)
 ;; 从周一开始计算新的一周
 (setq calendar-week-start-day 1)
@@ -144,6 +144,7 @@
 (require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
+;; heavily helm
 (require 'init-program)
 
 ;; 全局的键盘映射表设置

@@ -33,7 +33,7 @@
 
 (global-set-key (kbd "C-q") 'set-mark-command)
 
-(global-set-key (kbd "C-i") 'yas/expand)
+;; (global-set-key (kbd "C-i") 'yas/expand)
 
 (global-set-key (kbd "C-,") 'ace-jump-mode)
 (global-set-key (kbd "C-.") 'ace-jump-mode-pop-mark) ;;就是跳转会使用ace-jump的位置
