@@ -93,5 +93,20 @@
 (require 'buff-menu+)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)   ;; seems much better
 
+;;;;
+;; Twitter
+(load-file (concat CustHomeDir "/entertain/twittering-mode.el"))
+(setq twittering-use-master-password t)
+;; 使用HTTP代理 127.0.0.1:1087
+(setq twittering-proxy-use t
+      twittering-proxy-server "127.0.0.1"
+      twittering-proxy-port 1087)
+
+;; (setq twittering-convert-fix-size 32)
+(setq twittering-icon-mode t
+      twittering-use-icon-storage t)
+
+(require 'twittering-mode)
+
 
 (provide 'init-conf)
