@@ -108,5 +108,43 @@
 
 (require 'twittering-mode)
 
+;; email
+(add-to-list 'load-path
+    "/usr/local/Cellar/mu/1.2.0_1/share/emacs/site-lisp/mu/mu4e/")
+(require 'mu4e)
+(setq mu4e-maildir "~/Dropbox/GitHub/aquamacs_setting_repos/EmacsData/MailDir")
+(setq mu4e-drafts-folder "/Drafts")
+(setq mu4e-sent-folder   "/SentMail")
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+;; something about ourselves
+(setq
+   user-mail-address "t@taozj.org"
+   user-full-name  "taozhijiang"
+   mu4e-compose-signature
+    (concat
+      "Best Regards,\n"
+      "TAO Zhijiang\n"))
+
+(setq mu4e-show-images t)
+
+;; use imagemagick, if available
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+;; fetch mail every 10 mins
+(setq mu4e-update-interval 600)
+
+
+;; configuration for sending mail
+(setq message-send-mail-function 'smtpmail-send-it
+     smtpmail-stream-type 'starttls
+     smtpmail-default-smtp-server "smtp.zoho.com"
+     smtpmail-smtp-server "smtp.zoho.com"
+     smtpmail-smtp-service 587)
+
 
 (provide 'init-conf)
