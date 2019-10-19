@@ -144,6 +144,7 @@
 (require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
+(require 'init-entertain)
 
 ;; heavily helm
 
