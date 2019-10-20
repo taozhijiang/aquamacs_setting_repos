@@ -3,7 +3,7 @@
     (concat CustHomeDir "/program/"))
 
 ;; 在编程模式下，如果有无用的空白，则显示它
-(add-hook 'prog-mode-hook 
+(add-hook 'prog-mode-hook
           (lambda () (interactive) (setq show-trailing-whitespace 1)))
 ;; 可以启用显示空白字符串模式
 (global-set-key (kbd "C-c w") 'whitespace-mode)
@@ -39,11 +39,11 @@
 (add-to-list 'load-path
     (concat CustHomeDir "/program/company-mode/"))
 (require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode) ;; 全局company补全模式
 
 
 ;; magit git client
-(add-to-list 'load-path 
+(add-to-list 'load-path
     (concat CustHomeDir "/program/magit/lisp/"))
 ;;(require 'magit)
 (load (concat CustHomeDir "/program/magit/lisp/magit-autoloads.el"))
@@ -61,15 +61,15 @@
 
 
 ;; projectile
-(add-to-list 'load-path 
+(add-to-list 'load-path
     (concat CustHomeDir "/program/projectile/"))
 (require 'projectile)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (projectile-mode +1)
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
+(setq projectile-enable-caching t)
 ;;(helm-projectile-on)
 
 (provide 'init-program)

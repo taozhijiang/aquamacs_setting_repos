@@ -8,6 +8,8 @@
 
 ;; 对括号进行自动填充
 (require 'smartparens)
+(if (version< "26.0" emacs-version)
+        (setq sp-escape-quotes-after-insert nil))
 (smartparens-global-mode t)
 
 

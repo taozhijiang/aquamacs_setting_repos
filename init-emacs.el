@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   ztao's emacs profile
 ;;
-;;   <t@taozj.org>  
+;;   <t@taozj.org>
 ;;   All rights reserved.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -40,6 +40,7 @@
 
 (setq inhibit-startup-message t)                ;;缩减启动信息
 (global-font-lock-mode t)                       ;;打开语法高亮显示
+(setq initial-frame-alist (quote ((fullscreen, maximized)))) ;; 启动时候窗口最大化
 
 ;; 颜色主题，采用solarized-light
 (add-to-list 'custom-theme-load-path
@@ -49,24 +50,20 @@
 (load-file (concat CustHomeDir "/tools/zenburn-theme.el"))
 
 ;; 关闭滚动条、关闭工具栏、打开菜单栏，界面尽量的简洁
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode t)
+(scroll-bar-mode -1)  ;; 滚动栏
+(tool-bar-mode -1)    ;; 工具栏
+(menu-bar-mode t)     ;; 菜单栏
 
 ;; 打开全局的行号显示，下面的格式化用于行号和正文之间流出一个空格间隙，以便于查看真正文本内容
 (global-hl-line-mode t)
-(global-linum-mode t)
+(global-linum-mode t) ;; 显示行号
 (eval-after-load "linum"
     '(set-face-attribute 'linum nil :height 100))
-;; insert a space if running in text mode
-(if window-system
-	(progn)
-    (setq linum-format "%d ")
-)
+
 ;; 光标相关设置
 (mouse-avoidance-mode 'animate)
 (blink-cursor-mode 1)
-(setq-default cursor-type 'box)
+(setq-default cursor-type 'bar)         ;; buffer-local 变量，需要使用set-default
 
 (setq global-mark-ring-max 5000         ; increase mark ring to contains 5000 entries
       mark-ring-max 5000                ; increase kill ring to contains 5000 entries
@@ -109,7 +106,6 @@
 (setq-default kill-whole-line t)               ;; 连带删除整行的结尾换行符
 (setq x-select-enable-clipboard t)             ;; 默认将M-x复制到系统剪切板
 
-
 ;;Goto the definite line by the line number "C-x l"
 (define-key ctl-x-map "l" 'goto-line)
 (global-set-key [(home)] 'beginning-of-buffer)  ;; HOME  END 跳转到缓冲区的开头结尾
@@ -120,7 +116,7 @@
 ;; 但是对于真正的垃圾要真正执行删除操作
 (setq delete-by-moving-to-trash t
       system-trash-exclude-matches '("#[^/]+#$" ".*~$" "\\.emacs\\.desktop.*")
-      system-trash-exclude-paths '("/tmp"))      system-trash-exclude-paths 
+      system-trash-exclude-paths '("/tmp"))      system-trash-exclude-paths
 
 
 ;; find -name "*~" -print0 | xargs -0 rm
@@ -136,7 +132,7 @@
 ;; save the corresponding things
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)
-(setq session-save-file 
+(setq session-save-file
 	(concat CustHomeDir "/EmacsData/session" ))
 
 
@@ -144,12 +140,13 @@
 (require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
+(require 'init-org)
 
 ;; heavily helm
 
 (require 'init-program)
 (semantic-mode 1)
-(setq semanticdb-default-save-directory 
+(setq semanticdb-default-save-directory
       (concat CustHomeDir "/EmacsData/semanticdb/"))
 ;; 全局的键盘映射表设置
 (require 'global-keymap)
