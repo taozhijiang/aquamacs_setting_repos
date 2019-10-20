@@ -80,6 +80,11 @@
 ;;(global-set-key (kbd "C-c g") 'ace-jump-mode-pop-mark)
 ;; has been bind to Ctrl-.
 
+;; ace-jump-mode 支持拼音，中文
+(require 'ace-pinyin)
+(setq ace-pinyin-use-avy nil)
+(ace-pinyin-global-mode +1)
+
 
 ;; browse-kill-ring
 ;; this is very helpful, can browse your kill ring, and hit return can paste they here
