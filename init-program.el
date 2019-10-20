@@ -42,6 +42,12 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 
+;; magit git client
+(add-to-list 'load-path 
+    (concat CustHomeDir "/program/magit/lisp/"))
+;;(require 'magit)
+(load (concat CustHomeDir "/program/magit/lisp/magit-autoloads.el"))
+
 ;; helm
 (add-to-list 'load-path
     (concat CustHomeDir "/program/emacs-helm/"))
@@ -51,5 +57,19 @@
 ;; helm ide setup from others
 (require 'setup-helm)
 (require 'setup-helm-gtags)
+
+
+
+;; projectile
+(add-to-list 'load-path 
+    (concat CustHomeDir "/program/projectile/"))
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(projectile-mode +1)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+;;(helm-projectile-on)
 
 (provide 'init-program)

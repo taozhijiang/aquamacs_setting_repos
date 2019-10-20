@@ -68,7 +68,7 @@
 ;; (define-key global-map (kbd "C-c f") 'ace-jump-mode)
 ;;(global-set-key (kbd "C-c f") 'ace-jump-mode)
 ;; has been bind to Ctrl-,
-;; enable a more powerful jump back function from ace jump mode 
+;; enable a more powerful jump back function from ace jump mode
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
@@ -89,7 +89,7 @@
 ;; browse-kill-ring
 ;; this is very helpful, can browse your kill ring, and hit return can paste they here
 (require 'browse-kill-ring)
-(global-set-key (kbd "C-c k") 'browse-kill-ring) 
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
 
 
 ;; 可以快速列出所有buffer
@@ -102,8 +102,8 @@
 
 (require 'auto-save)
 (auto-save-enable)
-(setq auto-save-idle  3)    ;; 每3s没有击键，就触发保存
-;;(setq auto-save-silent t)   ;; quietly save
+(setq auto-save-idle  5)    ;; 发现如果没有击键达到5s，就触发保存
+(setq auto-save-silent t)   ;; 是否在minibuffer显示保存信息
 (setq auto-save-delete-trailing-whitespace t)  ;; automatically delete spaces at the end of the line when saving
 
 (provide 'init-conf)
