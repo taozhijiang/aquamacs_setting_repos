@@ -34,6 +34,14 @@
 ;; popup-el
 (require 'popup)
 
+;; company-mode
+;; Meta-p Meta-n 选择，Meta-digit 快速选择，return选中，tab触发选择
+(add-to-list 'load-path
+    (concat CustHomeDir "/program/company-mode/"))
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+
 ;; helm
 (add-to-list 'load-path
     (concat CustHomeDir "/program/emacs-helm/"))

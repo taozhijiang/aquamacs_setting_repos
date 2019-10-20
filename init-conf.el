@@ -3,7 +3,8 @@
 ;; 括号的显示和匹配提示
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
-(setq mouse-yank-at-point t)                   ;;粘贴在光标处，而不是鼠标处
+(setq ring-bell-function 'ignore)   ;; 无声的出错
+(setq mouse-yank-at-point t)        ;;粘贴在光标处，而不是鼠标处，防止坑爹触摸板干扰
 
 ;; 对括号进行自动填充
 (require 'smartparens)
@@ -92,5 +93,12 @@
 (load-file (concat CustHomeDir "/tools/buff-menu.el"))
 (require 'buff-menu+)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)   ;; seems much better
+
+
+(require 'auto-save)
+(auto-save-enable)
+(setq auto-save-idle  3)    ;; 每3s没有击键，就触发保存
+;;(setq auto-save-silent t)   ;; quietly save
+(setq auto-save-delete-trailing-whitespace t)  ;; automatically delete spaces at the end of the line when saving
 
 (provide 'init-conf)

@@ -144,7 +144,6 @@
 (require 'init-edit)
 (require 'init-conf)
 (require 'init-func)
-(require 'init-entertain)
 
 ;; heavily helm
 
@@ -155,5 +154,7 @@
 ;; 全局的键盘映射表设置
 (require 'global-keymap)
 (require 'emacs-code-patch)
+
+(require 'init-entertain)
 
 (provide 'init-emacs)

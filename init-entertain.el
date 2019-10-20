@@ -80,10 +80,10 @@
 
 
 ;;;;
-;; mode4reddit reddit模式
-;;
-;;(require 'md4rd)
-
+;; 英文补全助手
+;; 需要先开启 company-mode
+;; `toggle-company-english-helper
+(require 'company-english-helper)
 
 
 (provide 'init-entertain)
