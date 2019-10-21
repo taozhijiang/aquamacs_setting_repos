@@ -7,6 +7,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; 提示错误信息
+(setq debug-on-error t)
+
+
+;; 使用package管理的软件包
+(require 'init-package)
+
+;;;;;;;;;;;;;;;;;;
 
 ;; 个人信息设置
 (setq user-full-name "taozhijiang")
@@ -22,6 +30,7 @@
     '(auto-save-file-name-transforms `((".*", auto-directory t)))
     '(backup-directory-alist `((".*" . back-directory )))
     )
+(global-auto-revert-mode 1)  ;; 自动加载外部修改过的文件
 
 ;; 除了默认的Ctrl-X之外，再额外增加两种的键盘前缀映射
 ;; Ctrl-C
@@ -38,9 +47,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(setq inhibit-startup-message t)                ;;缩减启动信息
+(setq inhibit-startup-message t)                ;; 缩减启动信息
+(setq inhibit-splash-screen 1)                  ;; 关闭启动帮助画面
 (global-font-lock-mode t)                       ;;打开语法高亮显示
 (setq initial-frame-alist (quote ((fullscreen, maximized)))) ;; 启动时候窗口最大化
+
+;; more useful frame title, that show either a file or a
+;; buffer name (if the buffer isn't visiting a file)
+;; taken from prelude-ui.el
+(setq frame-title-format
+      '("" invocation-name " - " (:eval (if (buffer-file-name)
+                                                    (abbreviate-file-name (buffer-file-name))
+                                                  "%b"))))
 
 ;; 颜色主题，采用solarized-light
 (add-to-list 'custom-theme-load-path
@@ -63,7 +81,7 @@
 ;; 光标相关设置
 (mouse-avoidance-mode 'animate)
 (blink-cursor-mode 1)
-(setq-default cursor-type 'bar)         ;; buffer-local 变量，需要使用set-default
+(setq-default cursor-type 'box)         ;; buffer-local 变量，需要使用set-default
 
 (setq global-mark-ring-max 5000         ; increase mark ring to contains 5000 entries
       mark-ring-max 5000                ; increase kill ring to contains 5000 entries

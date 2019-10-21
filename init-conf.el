@@ -7,10 +7,12 @@
 (setq mouse-yank-at-point t)        ;;粘贴在光标处，而不是鼠标处，防止坑爹触摸板干扰
 
 ;; 对括号进行自动填充
-(require 'smartparens)
 (if (version< "26.0" emacs-version)
         (setq sp-escape-quotes-after-insert nil))
 (smartparens-global-mode t)
+;; 在elisp模式中不要补全单引号，多此一举
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
 
 
 ;; 使用ansi-term来代替termianl，调用操作系统的终端
@@ -107,5 +109,11 @@
 (setq auto-save-idle  5)    ;; 发现如果没有击键达到5s，就触发保存
 (setq auto-save-silent t)   ;; 是否在minibuffer显示保存信息
 (setq auto-save-delete-trailing-whitespace t)  ;; automatically delete spaces at the end of the line when saving
+
+;; nyan-mode 图形化的进度条
+(load-file (concat CustHomeDir "/tools/nyan-mode/nyan-mode.el"))
+(setq nyan-bar-length 12
+	  bnyan-animate-nyancat t)
+(nyan-mode)
 
 (provide 'init-conf)

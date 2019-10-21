@@ -28,8 +28,7 @@
 (global-set-key (kbd "C-v") 'scroll-up)
 (global-set-key (kbd "M-v") 'scroll-down)
 
-;; (global-set-key (kbd "C-s") 'isearch-forward)
-(global-set-key (kbd "C-s") 'helm-occur-from-isearch)  ;; helm增强型的搜索
+(global-set-key (kbd "C-s") 'isearch-forward)
 (global-set-key (kbd "C-r") 'isearch-backward)
 
 (global-set-key (kbd "C-q") 'set-mark-command)

@@ -36,6 +36,14 @@
 (prefer-coding-system 'utf-8-dos)
 (prefer-coding-system 'utf-8-unix)
 
+;; 删除windows下面的^M
+(defun remove-dos-eol ()
+  "replace DOS CR LF with Unix CR, remove end ^M"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
+
 ;; 编码设置 end
 
 (provide 'emacs-code-patch)

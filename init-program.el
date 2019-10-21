@@ -34,19 +34,22 @@
 ;; popup-el
 (require 'popup)
 
+;;
+(require 'highlight-numbers)
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
+
 ;; company-mode
 ;; Meta-p Meta-n 选择，Meta-digit 快速选择，return选中，tab触发选择
 (add-to-list 'load-path
     (concat CustHomeDir "/program/company-mode/"))
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode) ;; 全局company补全模式
-
-
-;; magit git client
-(add-to-list 'load-path
-    (concat CustHomeDir "/program/magit/lisp/"))
-;;(require 'magit)
-(load (concat CustHomeDir "/program/magit/lisp/magit-autoloads.el"))
+;; 使用常用的Ctrl-P Ctrl-N代替Meta-P Meta-N
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 ;; helm
 (add-to-list 'load-path
@@ -71,5 +74,8 @@
 (setq projectile-completion-system 'helm)
 (setq projectile-enable-caching t)
 ;;(helm-projectile-on)
+
+
+
 
 (provide 'init-program)
