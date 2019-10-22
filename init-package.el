@@ -4,6 +4,7 @@
 
 (setq vallina-install-dir (concat CustHomeDir "/install-lisp/"))
 (add-to-list 'load-path vallina-install-dir)
+(add-to-list 'load-path "/usr/local/Cellar/mu/1.2.0_1/share/emacs/site-lisp/mu/mu4e/")
 
 ;; cl - Common Lisp Extension
 (require 'cl)
@@ -22,6 +23,13 @@
     (setq vallina/packages '(
             ;; init-conf.el
             smartparens
+            nyan-mode
+            ;; init-entertain.el
+            mu4e-maildirs-extension
+            ;; init-program
+            magit
+            highlight-numbers
+            popup
     ))
 
     ; fetch the list of packages available

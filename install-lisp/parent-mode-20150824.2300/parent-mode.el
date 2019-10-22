@@ -2,6 +2,7 @@
 
 ;; Author: Fanael Linithien <fanael4@gmail.com>
 ;; URL: https://github.com/Fanael/parent-mode
+;; Package-Version: 20150824.2300
 ;; Version: 2.3
 
 ;; This file is NOT part of GNU Emacs.

@@ -172,4 +172,8 @@
 
 (require 'init-entertain)
 
+(setq custom-file 
+      (concat CustHomeDir "/custom-save.el"))
+(load-file custom-file)
+
 (provide 'init-emacs)

@@ -31,11 +31,6 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
-;; popup-el
-(require 'popup)
-
-;;
-(require 'highlight-numbers)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; company-mode

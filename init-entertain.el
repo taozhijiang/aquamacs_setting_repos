@@ -27,6 +27,9 @@
 (setq mu4e-drafts-folder "/Drafts")
 (setq mu4e-sent-folder   "/SentMail")
 
+;; 在首页显示收件文件夹
+(mu4e-maildirs-extension)
+
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 ;; allow for updating mail using 'U' in the main view:

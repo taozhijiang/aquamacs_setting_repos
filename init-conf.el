@@ -111,7 +111,6 @@
 (setq auto-save-delete-trailing-whitespace t)  ;; automatically delete spaces at the end of the line when saving
 
 ;; nyan-mode 图形化的进度条
-(load-file (concat CustHomeDir "/tools/nyan-mode/nyan-mode.el"))
 (setq nyan-bar-length 12
 	  bnyan-animate-nyancat t)
 (nyan-mode)
