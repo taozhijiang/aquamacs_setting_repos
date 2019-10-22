@@ -35,9 +35,6 @@
 
 ;; company-mode
 ;; Meta-p Meta-n 选择，Meta-digit 快速选择，return选中，tab触发选择
-(add-to-list 'load-path
-    (concat CustHomeDir "/program/company-mode/"))
-(require 'company)
 (add-hook 'after-init-hook 'global-company-mode) ;; 全局company补全模式
 ;; 使用常用的Ctrl-P Ctrl-N代替Meta-P Meta-N
 (with-eval-after-load 'company

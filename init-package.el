@@ -30,6 +30,7 @@
             magit
             highlight-numbers
             popup
+            company
     ))
 
     ; fetch the list of packages available
