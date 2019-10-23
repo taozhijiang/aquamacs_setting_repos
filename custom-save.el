@@ -15,6 +15,11 @@
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode nil t)
  '(package-selected-packages (quote (smartparens)))
+ '(safe-local-variable-values
+   (quote
+	((company-clang-arguments "-I/Users/taozj/Dropbox/GitHub/c-demo-project/include1/" "-I~/Users/taozj/Dropbox/GitHub/c-demo-project/include2/")
+	 (company-clang-arguments "-I/User/taozj/Dropbox/GitHub/c-demo-project/include1/" "-I~/User/taozj/Dropbox/GitHub/c-demo-project/include2/")
+	 (company-clang-arguments "-I~/Dropbox/GitHub/c-demo-project/include1/" "-I~/Dropbox/GitHub/c-demo-project/include2/"))))
  '(session-use-package t nil (session))
  '(tool-bar-mode nil)
  '(visual-line-mode nil t))

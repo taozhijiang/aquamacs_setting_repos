@@ -31,6 +31,10 @@
             highlight-numbers
             popup
             company
+            flycheck
+            ycmd
+            company-ycmd
+            flycheck-ycmd
     ))
 
     ; fetch the list of packages available

@@ -20,8 +20,6 @@
     (exec-path-from-shell-initialize))
 
 ;; flycheck
-(add-to-list 'load-path
-    (concat CustHomeDir "/program/flycheck/"))
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -34,14 +32,30 @@
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; company-mode
+(require 'company)
 ;; Meta-p Meta-n 选择，Meta-digit 快速选择，return选中，tab触发选择
 (add-hook 'after-init-hook 'global-company-mode) ;; 全局company补全模式
 ;; 使用常用的Ctrl-P Ctrl-N代替Meta-P Meta-N
 (with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+
+;; ycmd
+(require 'ycmd)
+(add-hook 'after-init-hook #'global-ycmd-mode)      ;; use ycmd-mode in all supported modes
+(set-variable 'ycmd-server-command '("python3" "/Users/taozj/Dropbox/GitHub/aquamacs_setting_repos/program/ycmd/ycmd"))
+;;(set-variable 'ycmd-global-config "/path/to/global_config.py")
+
+(require 'company-ycmd)
+(company-ycmd-setup)
+
+(require 'flycheck-ycmd)
+(flycheck-ycmd-setup)
+
+
 
 ;; helm
 (add-to-list 'load-path
