@@ -21,6 +21,7 @@
 
     ;; add here to install packages
     (setq vallina/packages '(
+            use-package
             ;; init-conf.el
             smartparens
             nyan-mode
@@ -31,10 +32,16 @@
             highlight-numbers
             popup
             company
+            company-c-headers
             flycheck
+            ;; ycmd
             ycmd
             company-ycmd
             flycheck-ycmd
+            ;; irony
+            irony
+            company-irony
+            flycheck-irony
     ))
 
     ; fetch the list of packages available
