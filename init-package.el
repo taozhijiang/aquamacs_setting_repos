@@ -25,6 +25,8 @@
             ;; init-conf.el
             smartparens
             nyan-mode
+            reveal-in-osx-finder
+            iedit
             ;; init-entertain.el
             mu4e-maildirs-extension
             ;; init-program
@@ -34,6 +36,7 @@
             company
             company-c-headers
             flycheck
+            modern-cpp-font-lock
             ;; ycmd
             ycmd
             company-ycmd
