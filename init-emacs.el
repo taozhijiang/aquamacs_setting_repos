@@ -94,6 +94,13 @@
 (setq default-tab-width 4)
 (setq c-basic-offset 4)
 (setq c++-basic-offset 4)
+;; by default auto-indent is bound to 'C-j'
+(electric-indent-mode -1)  ; no electric indent, auto-indent is sufficient
+(clean-aindent-mode t)
+(setq clean-aindent-is-simple-indent t)
+;; use space to indent by default
+(setq-default indent-tabs-mode nil)
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;;
 ;; 日期和时间的显示设置，包括日历
@@ -172,7 +179,7 @@
 
 (require 'init-entertain)
 
-(setq custom-file 
+(setq custom-file
       (concat CustHomeDir "/custom-save.el"))
 (load-file custom-file)
 

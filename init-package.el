@@ -23,10 +23,13 @@
     (setq vallina/packages '(
             use-package
             ;; init-conf.el
+            session
             smartparens
             nyan-mode
             reveal-in-osx-finder
             iedit
+			expand-region
+			clean-aindent-mode
             ;; init-entertain.el
             mu4e-maildirs-extension
             ;; init-program
@@ -37,6 +40,8 @@
             company-c-headers
             flycheck
             modern-cpp-font-lock
+            helm
+            projectile
             ;; ycmd
             ycmd
             company-ycmd
